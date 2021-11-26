@@ -1,0 +1,31 @@
+name: CI /CD para el Front Podbuster
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: ci 
+        run: |
+          npm install
+          npm run build 
+          npm run test
+          cd:
+    runs-on: ubuntu-latest
+    needs: ci
+  
+    steps:
+      - uses: actions/checkout@v1
+       - name: Docker login
+         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+       - name: Build
+         run: docker build -t front .
+       - name: Tags
+         run: |
+           docker tag front ${{ secrets.DOCKER_USER }}/front:${{ github.sha }}
+           docker tag front ${{ secrets.DOCKER_USER }}/front:latest
+       - name: Push
+         run: |
+           docker push ${{ secrets.DOCKER_USER }}/front:${{ github.sha }}
+           docker push ${{ secrets.DOCKER_USER }}/front:latest
