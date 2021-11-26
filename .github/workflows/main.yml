@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.4.0
       - name: ci 
         run: |
           npm install
@@ -16,7 +16,7 @@ jobs:
     needs: ci
   
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.4.0
        - name: Docker login
          run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
        - name: Build
