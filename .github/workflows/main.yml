@@ -1,11 +1,9 @@
-name: Build front-end
-on: push
-
+name: Test, Build & Deploy on Digital Ocean
+on: [push, pull_request]
 jobs:
   build:
-    name: Run back-end
+    name: Run front-end
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repositorio
         uses: actions/checkout@v2.4.0
@@ -20,19 +18,20 @@ jobs:
         
       - name: test
         run: npm run test
-    
-  deploy: 
-    needs: build
-      
+
+  deploy:
+    name: Build & Deploy on Digital Ocean
+    needs: test
     runs-on: ubuntu-latest
-      
     steps:
-      - name: Checkout files
-        uses: actions/checkout@v2
-          
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
+      - uses: actions/checkout@v2
+      - run: npm run build
+      - name: Deploy to Digital Ocean droplet via SSH action
+        uses: fifsky/ssh-action@master
         with:
-          token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-            
-  
+          host: ${{ secrets.DO_HOST }}
+          user: ${{ secrets.DO_USER }}
+          key: ${{ secrets.DO_KEY }}
+          source: "build/*"
+          target: "/var/www/html"
+          strip_components: 1
