@@ -16,8 +16,8 @@ jobs:
       - name: Instalar dependencias
         run: npm install    
         
-      - name: test
-        run: npm run test
+      ##- name: test
+        ##run: npm run test
 
   deploy:
     name: Build & Deploy on Digital Ocean
