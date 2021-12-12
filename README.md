@@ -44,9 +44,10 @@ and open http://localhost:3000 with your browser to see the result.
     ├── README.md
     └── vite.config.js
 ```
+
 # ⚙️ Tools:
 
 - <img align="left" width="32" height="32" src="https://cdn0.iconfinder.com/data/icons/logos-brands-in-colors/128/react_color-256.png"> [React](https://es.reactjs.org/)
 
-- <img align="left" width="32" height="32" src="https://camo.githubusercontent.com/61e102d7c605ff91efedb9d7e47c1c4a07cef59d3e1da202fd74f4772122ca4e/68747470733a2f2f766974656a732e6465762f6c6f676f2e737667"> [Vite](https://vitejs.dev/)
+- <img align="left" width="32" height="32" src="https://webpack.js.org/icon-pwa-512x512.d3dae4189855b3a72ff9.png"> [Webpack](https://webpack.js.org/)
 

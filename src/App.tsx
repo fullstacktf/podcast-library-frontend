@@ -11,6 +11,7 @@ import Footer from "components/Layout/Footer";
 import Home from "pages/home";
 import Category from "pages/category";
 import Podcasts from "pages/podcasts";
+import Play from "pages/play";
 import Error404 from "pages/404";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/category" element={<Category />} />
         <Route path="/podcasts" element={<Podcasts />} />
+        <Route path="/play/:id" element={<Play/>} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
