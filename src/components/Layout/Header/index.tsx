@@ -8,10 +8,7 @@ import {
   HStack,
   Button,
   VStack,
-  Input,
-  InputGroup,
   IconButton,
-  InputLeftElement,
   CloseButton,
   useColorModeValue,
   useDisclosure,
@@ -21,8 +18,8 @@ import { List, MagnifyingGlass } from "phosphor-react";
 import HeaderLinks from "./links";
 import Dark from "components/Layout/Dark";
 import Search from "components/Layout/Search";
+import Github from "components/Layout/Github";
 import Podbuster from "icons/podbuster";
-import Github from "icons/github";
 
 const Index = () => {
   const mobileNav = useDisclosure();
@@ -46,7 +43,7 @@ const Index = () => {
                 display={{ base: "flex", md: "none" }}
                 aria-label="Open menu"
                 variant="ghost"
-                icon={<List size="25"/>}
+                icon={<List size="25" />}
                 onClick={mobileNav.onOpen}
               />
               <VStack
@@ -124,17 +121,11 @@ const Index = () => {
             <Link
               to={{
                 pathname:
-                  "https://github.com/fullstacktf/podcast-library-frontend",
+                  "https://github.com/fullstacktf/podcast-library-frontend/",
               }}
               target="_blank"
             >
-              <IconButton
-                aria-label="Search"
-                icon={<Github size="24" />}
-                bg="transparent"
-                border="0"
-                variant="outline"
-              />
+              <Github />
             </Link>
           </HStack>
         </Flex>

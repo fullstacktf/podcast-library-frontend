@@ -38,8 +38,6 @@ const Player: FC<PlayerProps> = (props) => {
       <SimpleGrid
         columns={{ base: 1, md: 2 }}
         spacing={0}
-        borderBottom="1px"
-        borderColor={border}
       >
         <Box>
           <AspectRatio ratio={21 / 9}>
