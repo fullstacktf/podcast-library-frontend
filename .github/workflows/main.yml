@@ -18,7 +18,6 @@ jobs:
         
       ##- name: test
         ##run: npm run test
-
   deploy:
     name: Build & Deploy on Digital Ocean
     runs-on: ubuntu-latest
@@ -27,7 +26,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: Deploy to Digital Ocean droplet via SSH action
-        uses: fifsky/ssh-action@master
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.DO_HOST }}
           user: ${{ secrets.DO_USER }}
