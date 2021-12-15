@@ -1,24 +1,25 @@
-import React from 'react';
+import React from "react";
 import { Broadcast, User, Book } from "phosphor-react";
+
 const HEADER_LINKS = [
   {
     id: "1",
     href: "/",
     title: "Podcasts",
-    icon: <Broadcast />,
+    icon: <Broadcast size="20" />,
   },
   {
     id: "2",
     href: "/category",
     title: "Categories",
-    icon: <Book />
+    icon: <Book size="20" />,
   },
   {
     id: "3",
     href: "/docs",
     title: "Authors",
-    icon: <User />,
-  }
+    icon: <User size="20" />,
+  },
 ];
 
-export default HEADER_LINKS
+export default HEADER_LINKS;

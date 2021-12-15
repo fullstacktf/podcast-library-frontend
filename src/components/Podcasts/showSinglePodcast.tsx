@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect } from "react";
 import { getSinglePodcast } from "services/getSinglePodcast";
 import Player from "components/Player";
+import ShowAuthorPodcast from "./showAuthorPodcast";
+import { Divider } from "@chakra-ui/react";
 
 interface PodcastProp {
   id: string;
@@ -21,6 +23,7 @@ interface Provider {
 
 const ShowSinglePodcast: FC<PodcastProp> = (props) => {
   const [singlePodcasts, setsinglePodcasts] = useState<Provider[]>([]);
+  const author = "";
 
   useEffect(function () {
     const controller = new AbortController();
@@ -34,6 +37,7 @@ const ShowSinglePodcast: FC<PodcastProp> = (props) => {
     <>
       {singlePodcasts.map(
         ({ _id, language, title, genre, image, provider, description, author, url }) => (
+          <>
           <Player
             key={_id}
             link={`play/${_id}`}
@@ -46,6 +50,7 @@ const ShowSinglePodcast: FC<PodcastProp> = (props) => {
             url={url}
             language={language}
           />
+          </>  
         )
       )}
     </>

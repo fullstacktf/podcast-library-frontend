@@ -12,6 +12,8 @@ import Home from "pages/home";
 import Category from "pages/category";
 import Podcasts from "pages/podcasts";
 import Play from "pages/play";
+import Login from "pages/auth/login";
+import Register from "pages/auth/register";
 import Error404 from "pages/404";
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/podcasts" element={<Podcasts />} />
         <Route path="/play/:id" element={<Play/>} />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
