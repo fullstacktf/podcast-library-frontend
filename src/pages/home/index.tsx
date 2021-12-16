@@ -10,7 +10,7 @@ const index = () => {
         <title>Podcasts - Podbuster</title>
       </Helmet>
       <Box p="3">
-          <ShowPodcasts />
+        <ShowPodcasts />
       </Box>
     </>
   );

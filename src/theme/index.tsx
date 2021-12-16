@@ -5,7 +5,7 @@ import config from './config';
 const theme = extendTheme({
   config: {
     initialColorMode: 'dark',
-    useSystemColorMode: true,
+    useSystemColorMode: false,
   },
   styles: {
     global: (props: any) => ({

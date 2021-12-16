@@ -3,5 +3,20 @@
         "Podcasts": "Podcasts",
         "Categories": "Categorías",
         "Authors": "Autores"
+    },
+    "authDropdown": {
+        "Dashboard": "Dashboard",
+        "AddPodcast": "Subir podcast",
+        "Logout": "Cerrar sesión"
+    },
+    "buttons": {
+        "SignIn": "Iniciar sesión"
+    },
+    "authPage": {
+        "title": "👋 Bienvenido",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "Remember": "Recordar contraseña",
+        "Forgot": "Recuperar contraseña"
     }
 }

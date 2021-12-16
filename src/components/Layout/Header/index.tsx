@@ -17,6 +17,8 @@ import {
 import { List, MagnifyingGlass } from "phosphor-react";
 import HeaderLinks from "./links";
 import { useTranslation } from "react-i18next";
+
+import Auth from "components/Layout/Auth";
 import Dark from "components/Layout/Dark";
 import Search from "components/Layout/Search";
 import Github from "components/Layout/Github";
@@ -68,19 +70,19 @@ const Index = () => {
                   onClick={mobileNav.onClose}
                 />
                 {HeaderLinks.map((link) => (
-                  <>
-                    <Link to={link.href} key={link.href}>
-                      <Button
-                        variant="ghost"
-                        size="md"
-                        fontWeight="light"
-                        leftIcon={link.icon}
-                      >
-                        `${t(`header.${link.title}`)}`
-                      </Button>
-                    </Link>
-                  </>
-                ))}
+                <>
+                  <Link to={link.href} key={link.href}>
+                    <Button
+                      variant="ghost"
+                      size="md"
+                      fontWeight="light"
+                      leftIcon={link.icon}
+                    >
+                      {t("header." + link.title)}
+                    </Button>
+                  </Link>
+                </>
+              ))}
               </VStack>
             </Box>
             <Link to="/">
@@ -117,6 +119,7 @@ const Index = () => {
             <Search />
             <Dark />
             <Lang />
+            <Auth />
             <Github />
           </HStack>
         </Flex>

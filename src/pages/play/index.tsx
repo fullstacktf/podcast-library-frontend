@@ -12,7 +12,6 @@ const Index: React.FC = (): JSX.Element => {
   return (
     <>
       <Box p={{ base: 0, md: "3" }}>
-        <h1>{t("header.hello-world")}</h1>
         <ShowSinglePodcast id={`${params.id}`} />
         <Divider mt="3"/>
       </Box>
