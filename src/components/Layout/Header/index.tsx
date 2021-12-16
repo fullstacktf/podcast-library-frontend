@@ -16,17 +16,20 @@ import {
 } from "@chakra-ui/react";
 import { List, MagnifyingGlass } from "phosphor-react";
 import HeaderLinks from "./links";
+import { useTranslation } from "react-i18next";
 import Dark from "components/Layout/Dark";
 import Search from "components/Layout/Search";
 import Github from "components/Layout/Github";
+import Lang from "components/Layout/Lang";
 import Podbuster from "icons/podbuster";
 
 const Index = () => {
   const mobileNav = useDisclosure();
   const bg = useColorModeValue("white", "#161618");
+  const [t, i18n] = useTranslation("global");
   return (
     <>
-      <chakra.header
+      <Box
         bg={bg}
         borderBottomWidth="1px"
         pos="sticky"
@@ -56,7 +59,7 @@ const Index = () => {
                 p={2}
                 pb={4}
                 bg={bg}
-                spacing={3}
+                spacing={1}
                 shadow="sm"
               >
                 <CloseButton
@@ -73,7 +76,7 @@ const Index = () => {
                         fontWeight="light"
                         leftIcon={link.icon}
                       >
-                        {link.title}
+                        `${t(`header.${link.title}`)}`
                       </Button>
                     </Link>
                   </>
@@ -81,19 +84,14 @@ const Index = () => {
               </VStack>
             </Box>
             <Link to="/">
-              <Box
-                href="/"
-                title="Podbuster"
-                display="flex"
-                alignItems="center"
-              >
-                <Icon as={Podbuster} boxSize={7} size="lg" mr="2" />
+              <Box title="Podbuster" display="flex" alignItems="center">
+                <Icon as={Podbuster} boxSize={8} size="lg" mr="2" />
                 <Text fontSize="18px" mr="2">
                   podbuster
                 </Text>
               </Box>
             </Link>
-            <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
+            <HStack spacing={0} display={{ base: "none", md: "inline-flex" }}>
               {HeaderLinks.map((link) => (
                 <>
                   <Link to={link.href} key={link.href}>
@@ -103,7 +101,7 @@ const Index = () => {
                       fontWeight="light"
                       leftIcon={link.icon}
                     >
-                      {link.title}
+                      {t("header." + link.title)}
                     </Button>
                   </Link>
                 </>
@@ -118,18 +116,11 @@ const Index = () => {
           >
             <Search />
             <Dark />
-            <Link
-              to={{
-                pathname:
-                  "https://github.com/fullstacktf/podcast-library-frontend/",
-              }}
-              target="_blank"
-            >
-              <Github />
-            </Link>
+            <Lang />
+            <Github />
           </HStack>
         </Flex>
-      </chakra.header>
+      </Box>
     </>
   );
 };

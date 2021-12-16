@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import ReactPlayer from "react-player/youtube";
 import { User } from "phosphor-react";
-import Show from "components/Animate/show";
 
 interface PlayerProps {
   link: string;
@@ -61,7 +60,6 @@ const Player: FC<PlayerProps> = (props) => {
             <Badge fontWeight="light">{props.genre}</Badge>
             <Badge fontWeight="light">{props.language}</Badge>
           </Stack>
-          <Show delay={0.1}>
             <chakra.h1
               mb={2}
               fontSize={{ base: "3xl", md: "3xl", lg: "6xl" }}
@@ -71,12 +69,10 @@ const Player: FC<PlayerProps> = (props) => {
             >
               {props.title}
             </chakra.h1>
-          </Show>
           <chakra.p pr={{ base: 0, lg: 16 }} mt="4" mb="4" fontSize="sm">
             {props.description}
           </chakra.p>
           <Flex>
-            <Show delay={0.5}>
               <Button
                 leftIcon={<User />}
                 borderLeft="1px"
@@ -88,7 +84,6 @@ const Player: FC<PlayerProps> = (props) => {
               >
                 {props.author}
               </Button>
-            </Show>
           </Flex>
         </Flex>
       </SimpleGrid>
