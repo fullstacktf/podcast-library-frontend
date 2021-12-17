@@ -1,6 +1,11 @@
 @font-face {
-  font-family: ReadexPro;
-  src: url(../fonts/ReadexPro-Regular.ttf);
+  font-family: GTWalsheim;
+  src: url(../fonts/GT-Walsheim-Regular.woff2);
+}
+
+@font-face {
+  font-family: GTWalsheim-Medium;
+  src: url(../fonts/GT-Walsheim-Medium.woff2);
 }
 
 /* width */

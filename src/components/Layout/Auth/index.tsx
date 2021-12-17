@@ -26,25 +26,25 @@ const Index = () => {
             as={Button}
             variant="ghost"
             fontWeight="light"
-            border="1px"
-            borderColor={borderColor}
+            border= "1px"
+            borderColor= {borderColor}
           >
             {user.username}
           </MenuButton>
           <MenuList>
             <Link to="/app">
               <MenuItem icon={<Database size="20" />}>
-                {t("authDropdown.Dashboard")}
+              {t("buttons.Dashboard")}
               </MenuItem>
             </Link>
             <Link to="/app/upload">
               <MenuItem icon={<CloudArrowUp size="20" />}>
-                {t("authDropdown.AddPodcast")}
+                {t("buttons.AddPodcast")}
               </MenuItem>
             </Link>
             <MenuDivider />
             <MenuItem icon={<SignOut size="20" />} onClick={HandleLogout}>
-              {t("authDropdown.Logout")}
+              {t("buttons.Logout")}
             </MenuItem>
           </MenuList>
         </Menu>
@@ -56,7 +56,7 @@ const Index = () => {
             border="1px"
             borderColor={borderColor}
           >
-            {t("buttons.SignIn")}
+            {t("buttons.LogIn")}
           </Button>
         </Link>
       )}

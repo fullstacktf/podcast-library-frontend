@@ -1,29 +1,24 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, useColorModeValue } from "@chakra-ui/react";
+import { Text, useColorModeValue } from "@chakra-ui/react";
 import { getUser, removeUserSession } from "services/authService";
+import Sidebar from "components/App/Sidebar";
+import ShowPodcasts from "components/Podcasts/showPodcasts";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
   const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
-  const navigate = useNavigate();
+  const [t, i18n] = useTranslation("global");
   const user = getUser();
-
-  const handleLogout = () => {
-    window.location.reload();
-    removeUserSession();
-  };
 
   return (
     <>
-      <h1>Welcome {user.username}</h1>
-      <Button
-        border="1px"
-        borderColor={borderColor}
-        fontWeight="light"
-        onClick={handleLogout}
-      >
-        Logout
-      </Button>
+      <Sidebar>
+        <Text fontSize="4xl" ml="5" mb="2" mt="0">
+          {t("dashboardPage.title")}
+        </Text>
+        <ShowPodcasts />
+      </Sidebar>
     </>
   );
 };

@@ -4,19 +4,33 @@
         "Categories": "Categories",
         "Authors": "Authors"
     },
-    "authDropdown": {
-        "Dashboard": "Dashboard",
-        "AddPodcast": "Add podcast",
-        "Logout": "Logout"
-    },
     "buttons": {
-        "SignIn": "Sign In"
+        "Dashboard": "Dashboard",
+        "LogIn": "Login",
+        "SignIn": "Create new account",
+        "Logout": "Logout",
+        "MyPodcasts": "My podcasts",
+        "AddPodcast": "Upload podcast"
     },
     "authPage": {
-        "title": "👋 Welcome",
+        "titleLogIn": "Log In",
+        "titleSignIn": "Sign Up",
+        "Username": "Username",
         "Email": "Email address",
         "Password": "Password",
+        "RepeatPassword": "Repeat password",
         "Remember": "Remember me",
-        "Forgot": "Forgot password?"
+        "Forgot": "Forgot password?",
+        "AlreadyAcc": "Already have an account?",
+        "NewAcc": "Don't have an account?"
+    },
+    "validateRequired": {
+        "Username": "Username is required",
+        "Email": "Email is required",
+        "Password": "Password is required"
+    },
+    "dashboardPage": {
+        "welcome": "Welcome",
+        "title": "My podcasts"
     }
 }

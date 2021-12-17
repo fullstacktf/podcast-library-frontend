@@ -23,14 +23,11 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
         <Route path="/category" element={<Category />} />
         <Route path="/podcasts" element={<Podcasts />} />
         <Route path="/play/:id" element={<Play />} />
-        <Route
-          path="/auth"
-          element={<Navigate to={`/auth/login`} />}
-        />
+        <Route path="/auth" element={<Navigate to={`/auth/login`} />} />
         <Route
           path="/auth/login"
           element={getToken() ? <Navigate to={`/app/dashboard`} /> : <Login />}
@@ -43,15 +40,11 @@ function App() {
         />
         <Route
           path="/app"
-          element={
-            getToken() ? <Dashboard /> : <Navigate to={`/auth`} />
-          }
+          element={getToken() ? <Dashboard /> : <Navigate to={`/auth`} />}
         />
         <Route
           path="/app/dashboard"
-          element={
-            getToken() ? <Dashboard /> : <Navigate to={`/auth`} />
-          }
+          element={getToken() ? <Dashboard /> : <Navigate to={`/auth`} />}
         />
         <Route path="*" element={<Error404 />} />
       </Routes>

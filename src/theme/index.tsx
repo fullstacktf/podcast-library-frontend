@@ -10,7 +10,7 @@ const theme = extendTheme({
   styles: {
     global: (props: any) => ({
       body: {
-        fontFamily: "ReadexPro",
+        fontFamily: "GTWalsheim-Medium",
         color: mode("gray.800", "whiteAlpha.900")(props),
         bg: mode("white", "#161618")(props),
       },

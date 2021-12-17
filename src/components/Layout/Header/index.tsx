@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   chakra,
   Text,
@@ -27,8 +27,11 @@ import Podbuster from "icons/podbuster";
 
 const Index = () => {
   const mobileNav = useDisclosure();
-  const bg = useColorModeValue("white", "#161618");
   const [t, i18n] = useTranslation("global");
+  const bg = useColorModeValue("white", "#161618");
+  const bgHover = useColorModeValue("#E8E8E8", "#252525");
+  const colorHover = useColorModeValue("#2E2E2E", "white");
+
   return (
     <>
       <Box
@@ -70,25 +73,20 @@ const Index = () => {
                   onClick={mobileNav.onClose}
                 />
                 {HeaderLinks.map((link) => (
-                <>
-                  <Link to={link.href} key={link.href}>
-                    <Button
-                      variant="ghost"
-                      size="md"
-                      fontWeight="light"
-                      leftIcon={link.icon}
-                    >
-                      {t("header." + link.title)}
-                    </Button>
-                  </Link>
-                </>
-              ))}
+                  <>
+                    <Link to={link.href} key={link.href}>
+                      <Button variant="ghost" size="md" fontWeight="light">
+                        {t("header." + link.title)}
+                      </Button>
+                    </Link>
+                  </>
+                ))}
               </VStack>
             </Box>
             <Link to="/">
               <Box title="Podbuster" display="flex" alignItems="center">
                 <Icon as={Podbuster} boxSize={8} size="lg" mr="2" />
-                <Text fontSize="18px" mr="2">
+                <Text fontSize="18px" mr="2"  display={{ base: "none", md: "inline-flex" }}>
                   podbuster
                 </Text>
               </Box>
@@ -98,10 +96,15 @@ const Index = () => {
                 <>
                   <Link to={link.href} key={link.href}>
                     <Button
+                       _hover={{
+                        background: bgHover,
+                        color: colorHover
+                      }}
+                      color="gray.500"
                       variant="ghost"
                       size="md"
                       fontWeight="light"
-                      leftIcon={link.icon}
+                      fontSize="17px"
                     >
                       {t("header." + link.title)}
                     </Button>
