@@ -14,9 +14,9 @@ import {
 import { List, ListNumbers, CloudArrowUp, SignOut } from "phosphor-react";
 import { getUser, removeUserSession } from "services/authService";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Sidebar: FC = (props) => {
-
   const sidebar = useDisclosure();
   const color = useColorModeValue("black", "white");
   const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
@@ -44,17 +44,10 @@ const Sidebar: FC = (props) => {
       {...props}
     >
       <Box px="4" py="4" align="center">
-        <Text
-          fontSize="3xl"
-          fontWeight="light"
-        >
-          {t("dashboardPage.welcome")} 👋
+        <Text fontSize="3xl" mb="1" fontWeight="light" color="gray.500">
+          {user.username}
         </Text>
-        <Text
-          fontSize="1xl"
-          fontWeight="light"
-          color="gray.400"
-        >
+        <Text fontSize="1xl" fontWeight="light" color="gray.400">
           {user.email}
         </Text>
       </Box>
@@ -67,28 +60,34 @@ const Sidebar: FC = (props) => {
         pl="4"
         pr="4"
       >
-        <Button
-          bg="transparent"
-          color={color}
-          border="1px"
-          mb="2"
-          borderColor={borderColor}
-          fontWeight="light"
-          leftIcon={<ListNumbers size="20"/>}
-        >
-          {t("buttons.MyPodcasts")}
-        </Button>
-        <Button
-          bg="transparent"
-          color={color}
-          border="1px"
-          mb="2"
-          borderColor={borderColor}
-          fontWeight="light"
-          leftIcon={<CloudArrowUp size="20"/>}
-        >
-          {t("buttons.AddPodcast")}
-        </Button>
+        <Link to="/app/dashboard">
+          <Button
+            bg="transparent"
+            w="100%"
+            color={color}
+            border="1px"
+            mb="2"
+            borderColor={borderColor}
+            fontWeight="light"
+            leftIcon={<ListNumbers size="20" />}
+          >
+            {t("buttons.MyPodcasts")}
+          </Button>
+        </Link>
+        <Link to="/app/upload">
+          <Button
+            w="100%"
+            bg="transparent"
+            color={color}
+            border="1px"
+            mb="2"
+            borderColor={borderColor}
+            fontWeight="light"
+            leftIcon={<CloudArrowUp size="20" />}
+          >
+            {t("buttons.AddPodcast")}
+          </Button>
+        </Link>
         <Button
           bg="transparent"
           color={color}
@@ -96,7 +95,7 @@ const Sidebar: FC = (props) => {
           borderColor={borderColor}
           fontWeight="light"
           onClick={handleLogout}
-          leftIcon={<SignOut size="20"/>}
+          leftIcon={<SignOut size="20" />}
         >
           {t("buttons.Logout")}
         </Button>
@@ -104,10 +103,7 @@ const Sidebar: FC = (props) => {
     </Box>
   );
   return (
-    <Box
-      as="section"
-      minH="100vh"
-    >
+    <Box as="section" minH="100vh">
       <Box display={{ base: "none", md: "unset" }}>
         <SidebarContent />
       </Box>
@@ -139,7 +135,7 @@ const Sidebar: FC = (props) => {
             size="sm"
           />
         </Flex>
-        <Box as="main" p="4">
+        <Box as="main" p="6">
           {props.children}
         </Box>
       </Box>

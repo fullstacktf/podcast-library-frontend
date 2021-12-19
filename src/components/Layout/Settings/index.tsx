@@ -10,6 +10,10 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 import { MagnifyingGlass } from "phosphor-react";
+import Dark from "components/Layout/Dark";
+import Github from "components/Layout/Github";
+import Lang from "components/Layout/Lang";
+
 const Index = () => {
   return (
     <>
@@ -26,9 +30,11 @@ const Index = () => {
         <PopoverContent>
           <PopoverArrow />
           <PopoverCloseButton />
-          <PopoverHeader>Search</PopoverHeader>
+          <PopoverHeader>Settings</PopoverHeader>
           <PopoverBody>
-            Soon
+            <Dark />
+            <Github />
+            <Lang />
           </PopoverBody>
         </PopoverContent>
       </Popover>

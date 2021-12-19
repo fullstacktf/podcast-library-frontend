@@ -1,21 +1,53 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { Box, Divider } from "@chakra-ui/react";
-import ShowSinglePodcast from "components/Podcasts/showSinglePodcast";
-import { useParams } from "react-router-dom";
+import React, { FC } from "react";
+import { Box, Divider, Text } from "@chakra-ui/react";
+import Player from "components/Player";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { API_URL } from "services/settings";
+import useFetch from "hooks/fetchSingleData";
+import Loader from "animations/Loader";
+import ShowPodcastByCategory from "components/Podcasts/showPodcastByCategory";
 
+type PlayerResponse = {
+  title: string;
+  image: string;
+  genre: string;
+  provider: string;
+  description: string;
+  author: string;
+  url: string;
+  language: string;
+};
 
-const Index: React.FC = (): JSX.Element => {
+const Index: FC = () => {
   const params = useParams();
-  const [t, i18n] = useTranslation("global");
-  return (
+  const apiURL = `${API_URL}/podcasts/${params.id}`;
+  const { data: data, loading, error } = useFetch<PlayerResponse>(apiURL);
+
+  if (loading) return <Loader />;
+
+  if (error) return <Navigate to={`/404`} />;
+
+  return data ? (
     <>
-      <Box p={{ base: 0, md: "3" }}>
-        <ShowSinglePodcast id={`${params.id}`} />
+      <Box p="3">
+        <Player
+          title={data?.title}
+          image={data?.image}
+          genre={data?.genre}
+          provider={data?.provider}
+          description={data?.description}
+          author={data?.author}
+          url={data?.url}
+          language={data?.language}
+        />
         <Divider mt="3"/>
+        <Text fontSize="3xl" mt="2">Más de {data?.author}</Text>
+        <ShowPodcastByCategory genre={data?.genre} />
       </Box>
     </>
+  ) : (
+    <Loader />
   );
 };
 

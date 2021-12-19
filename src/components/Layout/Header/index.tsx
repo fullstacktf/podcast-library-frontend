@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
-  chakra,
   Text,
   Box,
   Flex,
@@ -17,12 +16,12 @@ import {
 import { List, MagnifyingGlass } from "phosphor-react";
 import HeaderLinks from "./links";
 import { useTranslation } from "react-i18next";
-
 import Auth from "components/Layout/Auth";
-import Dark from "components/Layout/Dark";
-import Search from "components/Layout/Search";
 import Github from "components/Layout/Github";
+import Settings from "components/Layout/Settings";
+import Dark from "components/Layout/Dark";
 import Lang from "components/Layout/Lang";
+
 import Podbuster from "icons/podbuster";
 
 const Index = () => {
@@ -87,7 +86,7 @@ const Index = () => {
               <Box title="Podbuster" display="flex" alignItems="center">
                 <Icon as={Podbuster} boxSize={8} size="lg" mr="2" />
                 <Text fontSize="18px" mr="2"  display={{ base: "none", md: "inline-flex" }}>
-                  podbuster
+                  Podbuster
                 </Text>
               </Box>
             </Link>
@@ -119,10 +118,9 @@ const Index = () => {
             display={mobileNav.isOpen ? "none" : "flex"}
             alignItems="center"
           >
-            <Search />
+            <Auth />
             <Dark />
             <Lang />
-            <Auth />
             <Github />
           </HStack>
         </Flex>

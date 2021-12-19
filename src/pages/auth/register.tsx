@@ -21,6 +21,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import Show from "animations/Show";
 import confetti from "canvas-confetti";
 
 interface IFormInput {
@@ -70,136 +71,151 @@ const Register = () => {
   };
 
   const onSubmit = () => {
-    handleRegister()
+    handleRegister();
   };
 
   return (
     <>
       <Flex align={"center"} justify={"center"}>
         <Stack spacing={2} mx={"auto"} maxW={"lg"} py={10} px={6}>
-          <Text fontSize={"4xl"}>{t("authPage.titleSignIn")}</Text>
-          <Box rounded={"lg"} p={8} border="1px" borderColor={borderColor}>
-            <Stack spacing={4}>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <Collapse in={isOpen} animateOpacity>
-                  <Box p="20px" color="black" mb="5" bg="#FFBD59" rounded="md">
-                    <Text fontSize="20px">🎉 ¡Bienvenido a Podbuster!</Text>
-                    <Text mb="2">Tu cuenta ha sido creada correctamente.</Text>
-                    <Link to="/auth">
-                      <Button
-                        variant="ghost"
-                        fontWeight="light"
-                        border="1px"
-                        w="100%"
-                        color="black"
-                        borderColor="black"
-                      >
-                        {t("buttons.LogIn")}
-                      </Button>
-                    </Link>
-                  </Box>
-                </Collapse>
-                <FormControl id="username" isInvalid={!!errors?.username}>
-                  <FormLabel>{t("authPage.Username")}</FormLabel>
-                  <Input
-                    id="username"
-                    {...register("username", {
-                      required: `${t("validateRequired.Username")}`,
-                    })}
-                    type="text"
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <FormErrorMessage>
-                    {errors.username && errors.username.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <FormControl id="email" mt="16px" isInvalid={!!errors?.email}>
-                  <FormLabel>{t("authPage.Email")}</FormLabel>
-                  <Input
-                    id="email"
-                    {...register("email", {
-                      required: `${t("validateRequired.Email")}`,
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: "Enter a valid email address",
-                      },
-                    })}
-                    type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <FormErrorMessage>
-                    {errors.email && errors.email.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <FormControl
-                  id="password"
-                  mt="16px"
-                  isInvalid={!!errors?.password}
-                >
-                  <FormLabel>{t("authPage.Password")}</FormLabel>
-                  <Input
+          <Show delay={0}>
+            <Text fontSize={"4xl"}>{t("authPage.titleSignIn")}</Text>
+          </Show>
+          <Show delay={0.1}>
+            <Box rounded={"lg"} p={8} border="1px" borderColor={borderColor}>
+              <Stack spacing={4}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Collapse in={isOpen} animateOpacity>
+                    <Box
+                      p="20px"
+                      color="black"
+                      mb="5"
+                      bg="#FFBD59"
+                      rounded="md"
+                    >
+                      <Text fontSize="20px">🎉 ¡Bienvenido a Podbuster!</Text>
+                      <Text mb="2">
+                        Tu cuenta ha sido creada correctamente.
+                      </Text>
+                      <Link to="/auth">
+                        <Button
+                          variant="ghost"
+                          fontWeight="light"
+                          border="1px"
+                          w="100%"
+                          color="black"
+                          borderColor="black"
+                        >
+                          {t("buttons.LogIn")}
+                        </Button>
+                      </Link>
+                    </Box>
+                  </Collapse>
+                  <FormControl id="username" isInvalid={!!errors?.username}>
+                    <FormLabel>{t("authPage.Username")}</FormLabel>
+                    <Input
+                      id="username"
+                      {...register("username", {
+                        required: `${t("validateRequired.Username")}`,
+                      })}
+                      type="text"
+                      placeholder={t("authPage.Username")}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <FormErrorMessage>
+                      {errors.username && errors.username.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl id="email" mt="16px" isInvalid={!!errors?.email}>
+                    <FormLabel>{t("authPage.Email")}</FormLabel>
+                    <Input
+                      id="email"
+                      {...register("email", {
+                        required: `${t("validateRequired.Email")}`,
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                          message: "Enter a valid email address",
+                        },
+                      })}
+                      type="email"
+                      placeholder={t("authPage.Email")}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <FormErrorMessage>
+                      {errors.email && errors.email.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl
                     id="password"
-                    type="password"
-                    {...register("password", {
-                      required: `${t("validateRequired.Password")}`,
-                      minLength: {
-                        value: 6,
-                        message: "Password must have at least 6 characters",
-                      },
-                    })}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <FormErrorMessage>
-                    {errors.password && errors.password.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <Stack spacing={5} mt="16px">
-                  {loading ? (
-                    <Button
-                      isLoading
-                      loadingText="Loading"
-                      spinnerPlacement="start"
-                      border="1px"
-                      borderColor={borderColor}
-                      fontWeight="light"
-                    >
-                      Loading...
-                    </Button>
-                  ) : (
-                    <Button
-                      border="1px"
-                      borderColor={borderColor}
-                      fontWeight="light"
-                      type="submit"
-                    >
-                      {t("buttons.SignIn")}
-                    </Button>
-                  )}
-                  {error && (
-                    <Alert status="error" borderRadius={5}>
-                      <AlertIcon />
-                      <AlertTitle mr={2} fontWeight="light">
-                        {error}
-                      </AlertTitle>
-                    </Alert>
-                  )}
-                </Stack>
-              </form>
-            </Stack>
-            <Flex mt="5">
-              <Text>{t("authPage.AlreadyAcc")}</Text>
-              <Link to="/auth/login">
-                <Button
-                  colorScheme="teal"
-                  variant="link"
-                  ml="2"
-                  fontWeight="light"
-                >
-                  {t("buttons.LogIn")}
-                </Button>
-              </Link>
-            </Flex>
-          </Box>
+                    mt="16px"
+                    isInvalid={!!errors?.password}
+                  >
+                    <FormLabel>{t("authPage.Password")}</FormLabel>
+                    <Input
+                      id="password"
+                      type="password"
+                      {...register("password", {
+                        required: `${t("validateRequired.Password")}`,
+                        minLength: {
+                          value: 6,
+                          message: `${t("validateRequired.PasswordCharacters")}`,
+                        },
+                      })}
+                      placeholder={t("authPage.PlacePassword")}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <FormErrorMessage>
+                      {errors.password && errors.password.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <Stack spacing={5} mt="16px">
+                    {loading ? (
+                      <Button
+                        isLoading
+                        loadingText="Loading"
+                        spinnerPlacement="start"
+                        border="1px"
+                        borderColor={borderColor}
+                        fontWeight="light"
+                      >
+                        Loading...
+                      </Button>
+                    ) : (
+                      <Button
+                        border="1px"
+                        borderColor={borderColor}
+                        fontWeight="light"
+                        type="submit"
+                      >
+                        {t("buttons.SignIn")}
+                      </Button>
+                    )}
+                    {error && (
+                      <Alert status="error" borderRadius={5}>
+                        <AlertIcon />
+                        <AlertTitle mr={2} fontWeight="light">
+                          {error}
+                        </AlertTitle>
+                      </Alert>
+                    )}
+                  </Stack>
+                </form>
+              </Stack>
+              <Flex mt="5">
+                <Text>{t("authPage.AlreadyAcc")}</Text>
+                <Link to="/auth/login">
+                  <Button
+                    colorScheme="teal"
+                    variant="link"
+                    ml="2"
+                    fontWeight="light"
+                  >
+                    {t("buttons.LogIn")}
+                  </Button>
+                </Link>
+              </Flex>
+            </Box>
+          </Show>
         </Stack>
       </Flex>
     </>

@@ -18,6 +18,7 @@
         "Username": "Username",
         "Email": "Email address",
         "Password": "Password",
+        "PlacePassword": "Password (6 characters minimum)",
         "RepeatPassword": "Repeat password",
         "Remember": "Remember me",
         "Forgot": "Forgot password?",
@@ -27,10 +28,28 @@
     "validateRequired": {
         "Username": "Username is required",
         "Email": "Email is required",
-        "Password": "Password is required"
+        "Password": "Password is required",
+        "PasswordCharacters": "Password must have at least 6 characters",
+        "Title": "Podcast title is required",
+        "Episode": "Podcast episode is required",
+        "Description": "Podcast description is required",
+        "Image": "Podcast image is required",
+        "Language": "Podcast language is required",
+        "Genre": "Podcast genre is required",
+        "Provider": "Podcast provider is required"
     },
     "dashboardPage": {
         "welcome": "Welcome",
         "title": "My podcasts"
+    },
+    "uploadPage": {
+        "titlePage": "Upload podcast",
+        "title": "Title",
+        "episode": "Episode",
+        "description": "Description",
+        "image": "Image",
+        "language": "Language",
+        "genre": "Genre",
+        "provider": "Provider"
     }
 }

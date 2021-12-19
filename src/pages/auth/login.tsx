@@ -21,6 +21,7 @@ import {
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Show from "animations/Show";
 
 interface IFormInput {
   email: string;
@@ -79,87 +80,93 @@ const Login = () => {
     <>
       <Flex align={"center"} justify={"center"}>
         <Stack spacing={2} mx={"auto"} maxW={"lg"} py={10} px={6}>
-          <Text fontSize={"4xl"}>{t("authPage.titleLogIn")}</Text>
-          <Box rounded={"lg"} p={8} border="1px" borderColor={borderColor}>
-            <Stack spacing={4}>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <FormControl id="email" isInvalid={!!errors?.email}>
-                  <FormLabel>{t("authPage.Email")}</FormLabel>
-                  <Input
-                    {...register("email", {
-                      required: `${t("validateRequired.Email")}`,
-                    })}
-                    type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <FormErrorMessage>
-                    {errors.email && errors.email.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <FormControl
-                  id="password"
-                  mt="16px"
-                  isInvalid={!!errors?.password}
-                >
-                  <FormLabel>{t("authPage.Password")}</FormLabel>
-                  <Input
-                    type="password"
-                    {...register("password", {
-                      required: `${t("validateRequired.Password")}`,
-                    })}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <FormErrorMessage>
-                    {errors.password && errors.password.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <Stack spacing={5} mt="16px">
-                  {loading ? (
-                    <Button
-                      isLoading
-                      loadingText="Loading"
-                      spinnerPlacement="start"
-                      border="1px"
-                      borderColor={borderColor}
-                      fontWeight="light"
-                    >
-                      Loading...
-                    </Button>
-                  ) : (
-                    <Button
-                      border="1px"
-                      borderColor={borderColor}
-                      fontWeight="light"
-                      type="submit"
-                    >
-                      {t("buttons.LogIn")}
-                    </Button>
-                  )}
-                  {error && (
-                    <Alert status="error" borderRadius={5}>
-                      <AlertIcon />
-                      <AlertTitle mr={2} fontWeight="light">
-                        {error}
-                      </AlertTitle>
-                    </Alert>
-                  )}
-                </Stack>
-              </form>
-            </Stack>
-            <Flex mt="5">
-              <Text>{t("authPage.NewAcc")}</Text>
-              <Link to="/auth/register">
-                <Button
-                  colorScheme="teal"
-                  variant="link"
-                  ml="2"
-                  fontWeight="light"
-                >
-                  {t("buttons.SignIn")}
-                </Button>
-              </Link>
-            </Flex>
-          </Box>
+          <Show delay={0}>
+            <Text fontSize={"4xl"}>{t("authPage.titleLogIn")}</Text>
+          </Show>
+          <Show delay={0.1}>
+            <Box rounded={"lg"} p={8} border="1px" borderColor={borderColor}>
+              <Stack spacing={4}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <FormControl id="email" isInvalid={!!errors?.email}>
+                    <FormLabel>{t("authPage.Email")}</FormLabel>
+                    <Input
+                      {...register("email", {
+                        required: `${t("validateRequired.Email")}`,
+                      })}
+                      type="email"
+                      placeholder={t("authPage.Email")}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <FormErrorMessage>
+                      {errors.email && errors.email.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl
+                    id="password"
+                    mt="16px"
+                    isInvalid={!!errors?.password}
+                  >
+                    <FormLabel>{t("authPage.Password")}</FormLabel>
+                    <Input
+                      type="password"
+                      {...register("password", {
+                        required: `${t("validateRequired.Password")}`,
+                      })}
+                      placeholder={t("authPage.Password")}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <FormErrorMessage>
+                      {errors.password && errors.password.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <Stack spacing={5} mt="16px">
+                    {loading ? (
+                      <Button
+                        isLoading
+                        loadingText="Loading"
+                        spinnerPlacement="start"
+                        border="1px"
+                        borderColor={borderColor}
+                        fontWeight="light"
+                      >
+                        Loading...
+                      </Button>
+                    ) : (
+                      <Button
+                        border="1px"
+                        borderColor={borderColor}
+                        fontWeight="light"
+                        type="submit"
+                      >
+                        {t("buttons.LogIn")}
+                      </Button>
+                    )}
+                    {error && (
+                      <Alert status="error" borderRadius={5}>
+                        <AlertIcon />
+                        <AlertTitle mr={2} fontWeight="light">
+                          {error}
+                        </AlertTitle>
+                      </Alert>
+                    )}
+                  </Stack>
+                </form>
+              </Stack>
+              <Flex mt="5">
+                <Text>{t("authPage.NewAcc")}</Text>
+                <Link to="/auth/register">
+                  <Button
+                    colorScheme="teal"
+                    variant="link"
+                    ml="2"
+                    fontWeight="light"
+                  >
+                    {t("buttons.SignIn")}
+                  </Button>
+                </Link>
+              </Flex>
+            </Box>
+          </Show>
         </Stack>
       </Flex>
     </>
