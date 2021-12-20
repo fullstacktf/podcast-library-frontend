@@ -41,7 +41,8 @@
         "Image": "Podcast image is required",
         "Language": "Podcast language is required",
         "Genre": "Podcast genre is required",
-        "Provider": "Podcast provider is required"
+        "Provider": "Podcast provider is required",
+        "URL": "Podcast URL is required"
     },
     "dashboardPage": {
         "welcome": "Welcome",
@@ -50,6 +51,7 @@
     "uploadPage": {
         "titlePage": "Upload podcast",
         "title": "Title",
+        "url": "URL",
         "episode": "Episode",
         "description": "Description",
         "image": "Image",

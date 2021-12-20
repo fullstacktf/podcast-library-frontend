@@ -44,7 +44,7 @@ const Sidebar: FC = (props) => {
       {...props}
     >
       <Box px="4" py="4" align="center">
-        <Text fontSize="3xl" mb="1" fontWeight="light" color="gray.500">
+        <Text fontSize="3xl" mb="1" fontWeight="light">
           {user.username}
         </Text>
         <Text fontSize="1xl" fontWeight="light" color="gray.400">

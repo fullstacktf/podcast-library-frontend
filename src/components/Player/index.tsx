@@ -93,7 +93,8 @@ const Player: FC<PlayerProps> = (props) => {
             <Button
               bg="transparent"
               border="1px"
-              variant="outline"
+              borderColor={border}
+              borderRadius="0"
               title={isPlaying ? `${t("buttons.Pause")}` : `${t("buttons.Play")}`}
               onClick={() => setPlaying(!isPlaying)}
               fontWeight="light"

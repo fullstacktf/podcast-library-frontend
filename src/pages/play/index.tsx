@@ -43,7 +43,7 @@ const Index: FC = () => {
         />
         <Divider mt="3" mb="4"/>
         <Center mb="3">
-          <Text fontSize="3xl" mt="2">
+          <Text fontSize="4xl" mt="2">
             Más de {data?.genre}
           </Text>
         </Center>

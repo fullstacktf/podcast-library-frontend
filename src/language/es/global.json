@@ -41,7 +41,8 @@
         "Image": "La imágen es obligatoria",
         "Language": "El idioma es obligatorio",
         "Genre": "El género es obligatorio",
-        "Provider": "Tienes que seleccionar un proveedor"
+        "Provider": "Tienes que seleccionar un proveedor",
+        "URL": "La URL del podcast es obligatoria"
     },
     "dashboardPage": {
         "welcome": "Bienvenido",
@@ -50,6 +51,7 @@
     "uploadPage": {
         "titlePage": "Subir podcast",
         "title": "Título",
+        "url": "URL",
         "episode": "Episodio",
         "description": "Descripción",
         "image": "Imágen",
