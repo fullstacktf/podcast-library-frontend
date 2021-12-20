@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
   deploy:
     name: Build & Deploy on Digital Ocean
