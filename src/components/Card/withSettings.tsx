@@ -43,6 +43,7 @@ const WithSettings: FC<CardProps> = (props) => {
               <Link to={props.link}>
                 <Button fontWeight="light" rightIcon={<ArrowSquareOut />}>Ver podcast</Button>
               </Link>
+              {/* <IconButton aria-label='Search database' icon={<SearchIcon />} /> */}
               <Button fontWeight="light">Twitter</Button>
             </HStack>
           </Box>
