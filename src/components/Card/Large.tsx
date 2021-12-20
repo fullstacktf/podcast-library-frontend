@@ -20,7 +20,8 @@ const Large: FC<CardProps> = (props) => {
       <Link to={props.link}>
         <motion.div whileHover={{ scale: 1.020 }} whileTap={{ scale: 1 }}>
           <Box
-            maxW="sm"
+            maxW="100%"
+            mb="2"
             borderWidth="1px"
             overflow="hidden"
             _hover={{ borderColor: "#e2a851" }}

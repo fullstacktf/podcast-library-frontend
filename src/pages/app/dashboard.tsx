@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Text, useColorModeValue } from "@chakra-ui/react";
 import { getUser, removeUserSession } from "services/authService";
 import Sidebar from "components/App/Sidebar";
-import ShowPodcasts from "components/Podcasts/showPodcasts";
+import ShowUserPodcasts from "components/Podcasts/showPodcastUser";
 import { useTranslation } from "react-i18next";
 import Show from "animations/Show";
 
@@ -20,7 +20,7 @@ const Dashboard = () => {
             {t("dashboardPage.title")}
           </Text>
         </Show>
-        <ShowPodcasts />
+        <ShowUserPodcasts author={user.username} />
       </Sidebar>
     </>
   );
