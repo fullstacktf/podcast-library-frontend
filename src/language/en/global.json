@@ -10,7 +10,12 @@
         "SignIn": "Create new account",
         "Logout": "Logout",
         "MyPodcasts": "My podcasts",
-        "AddPodcast": "Upload podcast"
+        "AddPodcast": "Upload podcast",
+        "Play": "Play",
+        "Pause": "Pause",
+        "Share": "Share", 
+        "Copy": "Copy",
+        "Copied": "Copied"
     },
     "authPage": {
         "titleLogIn": "Log In",

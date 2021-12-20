@@ -16,7 +16,9 @@ function FetchSingleData<data>(url: string) {
         setError(false);
       })
       .catch(err => {
+        setData(undefined);
         setError(true);
+        setLoading(false);
       })
       .finally(() => {
         setLoading(false);

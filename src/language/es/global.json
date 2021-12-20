@@ -10,7 +10,12 @@
         "SignIn": "Crear nueva cuenta",
         "Logout": "Cerrar sesión",
         "MyPodcasts": "Mis podcasts",
-        "AddPodcast": "Subir podcast"
+        "AddPodcast": "Subir podcast",
+        "Play": "Reproducir",
+        "Pause": "Pausar",
+        "Share": "Compartir", 
+        "Copy": "Copiar",
+        "Copied": "Copiado"
     },
     "authPage": {
         "titleLogIn": "Bienvenido",

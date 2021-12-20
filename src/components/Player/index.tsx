@@ -1,5 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, Suspense, useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link, useLocation } from "react-router-dom";
+import { WEB_URL } from "services/settings";
 import {
   chakra,
   Box,
@@ -12,9 +14,11 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import ReactPlayer from "react-player/youtube";
-import { User } from "phosphor-react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { User, Play, Pause, Copy, ShareNetwork } from "phosphor-react";
 import Show from "animations/Show";
-import { Link } from "react-router-dom";
+import Loader from "animations/Loader";
+import { useTranslation } from "react-i18next";
 
 interface PlayerProps {
   image: string;
@@ -29,19 +33,34 @@ interface PlayerProps {
 
 const Player: FC<PlayerProps> = (props) => {
   const border = useColorModeValue("gray.300", "#616161");
+  const [isPlaying, setPlaying] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [t, i18n] = useTranslation("global");
+  const location = useLocation();
+
+  const onCopyText = () => {
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  };
+
   return (
     <>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={0}>
-        <Box>
-          <AspectRatio ratio={21 / 9}>
-            <ReactPlayer
-              controls={true}
-              width="100%"
-              height="100%"
-              url={`${props.url}`}
-            />
-          </AspectRatio>
-        </Box>
+        <Suspense fallback={<Loader />}>
+          <Box>
+            <AspectRatio ratio={21 / 9}>
+              <ReactPlayer
+                controls={true}
+                width="100%"
+                height="100%"
+                playing={isPlaying}
+                url={`${props.url}`}
+              />
+            </AspectRatio>
+          </Box>
+        </Suspense>
         <Flex
           direction="column"
           alignItems="start"
@@ -71,6 +90,18 @@ const Player: FC<PlayerProps> = (props) => {
             {props.description}
           </chakra.p>
           <Flex>
+            <Button
+              bg="transparent"
+              border="1px"
+              variant="outline"
+              title={isPlaying ? `${t("buttons.Pause")}` : `${t("buttons.Play")}`}
+              onClick={() => setPlaying(!isPlaying)}
+              fontWeight="light"
+              marginRight="3"
+              leftIcon={isPlaying ? <Pause size="20" /> : <Play size="20" />}
+            >
+              {isPlaying ? `${t("buttons.Pause")}` : `${t("buttons.Play")}`}
+            </Button>
             <Show delay={0.2}>
               <Link to={`/author/${props.author}`}>
                 <Button
@@ -86,6 +117,21 @@ const Player: FC<PlayerProps> = (props) => {
                 </Button>
               </Link>
             </Show>
+            <CopyToClipboard text={`${WEB_URL}${location.pathname}`} onCopy={onCopyText}>
+              <Button
+                bg="transparent"
+                border="0"
+                borderRadius="0"
+                variant="outline"
+                title={copied ? `${t("buttons.Copied")}` : `${t("buttons.Copy")}`}
+                onClick={() => setCopied(!isPlaying)}
+                fontWeight="light"
+                marginRight="3"
+                leftIcon={copied ? <Copy size="20" /> : <ShareNetwork size="20" />}
+              >
+                {copied ? `${t("buttons.Copied")}` : `${t("buttons.Share")}`}
+              </Button>
+            </CopyToClipboard>
           </Flex>
         </Flex>
       </SimpleGrid>

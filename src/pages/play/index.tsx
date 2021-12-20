@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Box, Divider, Text } from "@chakra-ui/react";
+import { Box, Center, Divider, Text } from "@chakra-ui/react";
 import Player from "components/Player";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -30,7 +30,7 @@ const Index: FC = () => {
 
   return data ? (
     <>
-      <Box p="3">
+      <Box p={{ base: "0", md: "3" }}>
         <Player
           title={data?.title}
           image={data?.image}
@@ -41,8 +41,12 @@ const Index: FC = () => {
           url={data?.url}
           language={data?.language}
         />
-        <Divider mt="3"/>
-        <Text fontSize="3xl" mt="2">Más de {data?.author}</Text>
+        <Divider mt="3" mb="4"/>
+        <Center mb="3">
+          <Text fontSize="3xl" mt="2">
+            Más de {data?.genre}
+          </Text>
+        </Center>
         <ShowPodcastByCategory genre={data?.genre} />
       </Box>
     </>

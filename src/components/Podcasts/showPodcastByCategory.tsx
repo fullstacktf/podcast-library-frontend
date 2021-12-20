@@ -1,10 +1,10 @@
 import React, { FC, useState, useEffect } from "react";
-import { Box, Divider, Text } from "@chakra-ui/react";
+import { Container, SimpleGrid } from '@chakra-ui/react'
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "services/settings";
 import useFetch from "hooks/fetchSomeData";
 import Loader from "animations/Loader";
-import Card from "components/Card";
+import Card from "components/Card/Large";
 
 interface PodcastProp {
   genre: string;
@@ -16,6 +16,7 @@ type PlayerResponse = {
   image: string;
   provider: string;
   author: string;
+  description: string;
 };
 
 const ShowPodcastByCategory: FC<PodcastProp> = (props) => {
@@ -28,16 +29,21 @@ const ShowPodcastByCategory: FC<PodcastProp> = (props) => {
 
   return data ? (
     <>
-      {data.map((data) => (
-        <Card
-          title={data.title}
-          image={data.image}
-          provider={data.provider}
-          author={data.author}
-          key={data._id}
-          link={`/play/${data._id}`}
-        />
-      ))}
+      <Container maxW="100%">
+        <SimpleGrid minChildWidth="300px" columns={4} spacing={5}>
+          {data.map((data) => (
+            <Card
+              title={data.title}
+              image={data.image}
+              provider={data.provider}
+              description={data.description}
+              author={data.author}
+              key={data._id}
+              link={`/play/${data._id}`}
+            />
+          ))}
+        </SimpleGrid>
+      </Container>
     </>
   ) : (
     <Loader />

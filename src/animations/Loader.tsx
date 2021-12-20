@@ -1,50 +1,31 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const LoadingDot = {
+const styleContainer = {
+  position: "relative",
+  width: 50,
+  height: 50
+};
+
+const styleSpan = {
   display: "block",
-  width: "2rem",
-  height: "2rem",
-  backgroundColor: "#F0B355",
-  borderRadius: "50%"
+  width: 50,
+  height: 50,
+  border: "7px solid #eee",
+  borderTop: "7px solid #DBA54E",
+  borderRadius: "50%",
+  top: 0,
+  left: 0
 };
 
-const LoadingContainer = {
-  width: "10rem",
-  height: "5rem",
-  display: "flex",
-  justifyContent: "space-around"
+const spinTransition = {
+  repeat: Infinity,
+  ease: "linear",
+  width: ["100%", "100%"],
+  duration: 0.95
 };
 
-const ContainerVariants = {
-  initial: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  },
-  animate: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const DotVariants = {
-  initial: {
-    y: "0%"
-  },
-  animate: {
-    y: "100%"
-  }
-};
-
-const DotTransition = {
-  duration: 0.5,
-  yoyo: Infinity,
-  ease: "easeInOut"
-};
-
-export default function Loader() {
+export const ThreeDotsWave = () => {
   return (
     <div
       style={{
@@ -52,32 +33,16 @@ export default function Loader() {
         width: "100%",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
-      <motion.div
-        style={LoadingContainer}
-        variants={ContainerVariants}
-        initial="initial"
-        animate="animate"
-      >
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-        <motion.span
-          style={LoadingDot}
-          variants={DotVariants}
-          transition={DotTransition}
-        />
-      </motion.div>
+      <motion.span
+        style={styleSpan}
+        animate={{ rotate: 360 }}
+        transition={spinTransition}
+      />
     </div>
   );
-}
+};
 
+export default ThreeDotsWave;

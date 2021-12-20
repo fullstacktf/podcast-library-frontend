@@ -29,6 +29,7 @@ const Index = () => {
   const [t, i18n] = useTranslation("global");
   const bg = useColorModeValue("white", "#161618");
   const bgHover = useColorModeValue("#E8E8E8", "#252525");
+  const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
   const colorHover = useColorModeValue("#2E2E2E", "white");
 
   return (
@@ -65,6 +66,8 @@ const Index = () => {
                 bg={bg}
                 spacing={1}
                 shadow="sm"
+                border="1px"
+                borderColor={borderColor}
               >
                 <CloseButton
                   aria-label="Close menu"
