@@ -1,5 +1,4 @@
 import React, { FC, Suspense, useState } from "react";
-import { Helmet } from "react-helmet";
 import { Link, useLocation } from "react-router-dom";
 import { WEB_URL } from "services/settings";
 import {
@@ -89,13 +88,19 @@ const Player: FC<PlayerProps> = (props) => {
           <chakra.p pr={{ base: 0, lg: 16 }} mt="4" mb="4" fontSize="sm">
             {props.description}
           </chakra.p>
-          <Flex>
+          <Stack
+            w={{ base: "100%", md: "none" }}
+            direction={{ base: "column", md: "row" }}
+            spacing={2}
+          >
             <Button
               bg="transparent"
               border="1px"
               borderColor={border}
               borderRadius="0"
-              title={isPlaying ? `${t("buttons.Pause")}` : `${t("buttons.Play")}`}
+              title={
+                isPlaying ? `${t("buttons.Pause")}` : `${t("buttons.Play")}`
+              }
               onClick={() => setPlaying(!isPlaying)}
               fontWeight="light"
               marginRight="3"
@@ -106,34 +111,41 @@ const Player: FC<PlayerProps> = (props) => {
             <Show delay={0.2}>
               <Link to={`/author/${props.author}`}>
                 <Button
+                  w={{ base: "100%", md: "none" }}
                   leftIcon={<User />}
                   borderLeft="1px"
                   borderRadius="0"
                   borderColor={border}
                   variant="ghost"
                   fontWeight="light"
-                  w="100%"
                 >
                   {props.author}
                 </Button>
               </Link>
             </Show>
-            <CopyToClipboard text={`${WEB_URL}${location.pathname}`} onCopy={onCopyText}>
+            <CopyToClipboard
+              text={`${WEB_URL}${location.pathname}`}
+              onCopy={onCopyText}
+            >
               <Button
                 bg="transparent"
                 border="0"
                 borderRadius="0"
-                variant="outline"
-                title={copied ? `${t("buttons.Copied")}` : `${t("buttons.Copy")}`}
+                variant="ghost"
+                title={
+                  copied ? `${t("buttons.Copied")}` : `${t("buttons.Copy")}`
+                }
                 onClick={() => setCopied(!isPlaying)}
                 fontWeight="light"
                 marginRight="3"
-                leftIcon={copied ? <Copy size="20" /> : <ShareNetwork size="20" />}
+                leftIcon={
+                  copied ? <Copy size="20" /> : <ShareNetwork size="20" />
+                }
               >
                 {copied ? `${t("buttons.Copied")}` : `${t("buttons.Share")}`}
               </Button>
             </CopyToClipboard>
-          </Flex>
+          </Stack>
         </Flex>
       </SimpleGrid>
     </>

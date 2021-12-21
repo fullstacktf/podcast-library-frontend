@@ -1,12 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const styleContainer = {
-  position: "relative",
-  width: 50,
-  height: 50
-};
-
 const styleSpan = {
   display: "block",
   width: 50,

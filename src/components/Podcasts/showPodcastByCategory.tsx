@@ -30,7 +30,7 @@ const ShowPodcastByCategory: FC<PodcastProp> = (props) => {
   return data ? (
     <>
       <Container maxW="100%">
-        <SimpleGrid minChildWidth="300px" columns={4} spacing={5}>
+        <SimpleGrid minChildWidth={{ base: "100%", md: "300px" }} columns={4} spacing={5}>
           {data.map((data) => (
             <Card
               title={data.title}

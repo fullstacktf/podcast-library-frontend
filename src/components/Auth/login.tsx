@@ -34,7 +34,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
-  const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
+  const borderColor = useColorModeValue("#303030", "#3B3B3D");
 
   const {
     register,
@@ -94,9 +94,8 @@ const Login = () => {
                         required: `${t("validateRequired.Email")}`,
                       })}
                       type="email"
-                      variant='filled'
+                      variant="outline"
                       borderColor={borderColor}
-                      placeholder={t("authPage.Email")}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <FormErrorMessage>
@@ -114,9 +113,8 @@ const Login = () => {
                       {...register("password", {
                         required: `${t("validateRequired.Password")}`,
                       })}
-                      variant='filled'
+                      variant="outline"
                       borderColor={borderColor}
-                      placeholder={t("authPage.Password")}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <FormErrorMessage>

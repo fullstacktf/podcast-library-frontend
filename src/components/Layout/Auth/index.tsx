@@ -16,7 +16,7 @@ import { getToken, getUser, HandleLogout } from "services/authService";
 import { Database, CloudArrowUp, SignOut, UserSquare } from "phosphor-react";
 
 const Index = () => {
-  const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
+  const borderColor = useColorModeValue("#303030", "#3B3B3D");
   const [t, i18n] = useTranslation("global");
   const user = getUser();
 

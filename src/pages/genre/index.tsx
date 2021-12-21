@@ -17,7 +17,7 @@ const Index = () => {
   return (
     <>
       <Box mx="auto" overflow="hidden">
-        <Flex alignItems="center" px={6} py={3} bg="#CDB285" color="black">
+        <Flex alignItems="center" px={6} py={3} bg="#DCBF8E" color="black">
           <Icon as={Hash} h={9} w={9} />
           <Show delay={0}>
             <chakra.h1 mx={3} fontWeight="light" fontSize="4xl">

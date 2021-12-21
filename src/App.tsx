@@ -1,5 +1,4 @@
 import React, {Suspense} from "react";
-import { render } from "react-dom";
 import { Navigate, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { getToken } from "services/authService";

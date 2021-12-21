@@ -13,12 +13,11 @@ import {
   useDisclosure,
   Icon,
 } from "@chakra-ui/react";
-import { List, MagnifyingGlass } from "phosphor-react";
+import { List } from "phosphor-react";
 import HeaderLinks from "./links";
 import { useTranslation } from "react-i18next";
 import Auth from "components/Layout/Auth";
 import Github from "components/Layout/Github";
-import Settings from "components/Layout/Settings";
 import Dark from "components/Layout/Dark";
 import Lang from "components/Layout/Lang";
 
@@ -27,16 +26,17 @@ import Podbuster from "icons/podbuster";
 const Index = () => {
   const mobileNav = useDisclosure();
   const [t, i18n] = useTranslation("global");
-  const bg = useColorModeValue("white", "#161618");
+  const bg = useColorModeValue("#DCBF8E", "#161618");
   const bgHover = useColorModeValue("#E8E8E8", "#252525");
-  const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
+  const borderColor = useColorModeValue("#303030", "#3B3B3D");
   const colorHover = useColorModeValue("#2E2E2E", "white");
 
   return (
     <>
       <Box
         bg={bg}
-        borderBottomWidth="1px"
+        borderBottom="0px"
+        borderColor={borderColor}
         pos="sticky"
         top="0"
         zIndex="1000"

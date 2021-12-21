@@ -39,7 +39,7 @@ const Register = () => {
   const [t, i18n] = useTranslation("global");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bgColor = useColorModeValue("white", "#161618");
-  const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
+  const borderColor = useColorModeValue("#303030", "#3B3B3D");
 
   const {
     register,
@@ -119,10 +119,10 @@ const Register = () => {
                       {...register("username", {
                         required: `${t("validateRequired.Username")}`,
                       })}
-                      variant="filled"
+                      _hover={{ borderColor: "gray.500" }}
+                      variant="outline"
                       borderColor={borderColor}
                       type="text"
-                      placeholder={t("authPage.Username")}
                       onChange={(e) => setUsername(e.target.value)}
                     />
                     <FormErrorMessage>
@@ -140,10 +140,10 @@ const Register = () => {
                           message: "Enter a valid email address",
                         },
                       })}
-                      variant="filled"
+                      _hover={{ borderColor: "gray.500" }}
+                      variant="outline"
                       borderColor={borderColor}
                       type="email"
-                      placeholder={t("authPage.Email")}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <FormErrorMessage>
@@ -168,9 +168,9 @@ const Register = () => {
                           )}`,
                         },
                       })}
-                      variant="filled"
+                      _hover={{ borderColor: "gray.500" }}
+                      variant="outline"
                       borderColor={borderColor}
-                      placeholder={t("authPage.Password")}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <FormErrorMessage>

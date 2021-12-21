@@ -2,7 +2,7 @@ import * as React from "react";
 import { useColorModeValue } from "@chakra-ui/react";
 
 function SvgComponent(props: any) {
-  const bg = useColorModeValue("#dba54e", "#ffbd59");
+  const bg = useColorModeValue("black", "#ffbd59");
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

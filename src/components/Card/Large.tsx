@@ -18,7 +18,7 @@ const Large: FC<CardProps> = (props) => {
   return (
     <>
       <Link to={props.link}>
-        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1 }}>
+        <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 1 }}>
           <Box
             maxW="100%"
             mb="2"

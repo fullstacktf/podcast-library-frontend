@@ -13,6 +13,8 @@ import {
   VisuallyHidden,
   Input,
   Divider,
+  Image,
+  HStack,
 } from "@chakra-ui/react";
 
 import { Helmet } from "react-helmet";
@@ -24,7 +26,7 @@ import RegisterForm from "components/Auth/register";
 
 const Index = () => {
   const color = useColorModeValue("black", "white");
-  const bgHeader = useColorModeValue("#CDB285", "#4A4A4A");
+  const bgHeader = useColorModeValue("#DCBF8E", "#1E1E1E");
   const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
   return (
     <>
@@ -50,7 +52,7 @@ const Index = () => {
             textAlign={{ base: "center", lg: "left" }}
           >
             <chakra.h1
-              mb={4}
+              mb={10}
               fontSize={{ base: "3xl", md: "5xl" }}
               fontWeight="bold"
               lineHeight={{ base: "shorter", md: "none" }}
@@ -60,7 +62,10 @@ const Index = () => {
             </chakra.h1>
             <ShowCategories />
           </GridItem>
-          <GridItem colSpan={{ base: "auto", md: 4 }}>
+          <GridItem
+            colSpan={{ base: "auto", md: 4 }}
+            display={{ base: "none", md: "block" }}
+          >
             <Box mb={6} p="2">
               <RegisterForm />
             </Box>
