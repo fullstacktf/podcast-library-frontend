@@ -15,7 +15,9 @@
         "Pause": "Pausar",
         "Share": "Compartir", 
         "Copy": "Copiar",
-        "Copied": "Copiado"
+        "Copied": "Copiado",
+        "ViewPodcast": "Ver podcast",
+        "Delete": "Eliminar podcast"
     },
     "authPage": {
         "titleLogIn": "Bienvenido",

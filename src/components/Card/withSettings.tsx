@@ -1,13 +1,31 @@
-import React, { FC } from "react";
-import { Box, Text, HStack, Button } from "@chakra-ui/react";
-import { Broadcast } from "phosphor-react";
-import { motion } from "framer-motion";
+import React, { FC, useState } from "react";
+import axios from "axios";
+import {
+  Box,
+  Text,
+  HStack,
+  Button,
+  IconButton,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { Broadcast, Trash } from "phosphor-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ArrowSquareOut } from "phosphor-react";
+import { API_URL } from "services/settings";
+import toast from "react-hot-toast";
 
 interface CardProps {
+  id: string;
   link: string;
-  key: number;
   image: string;
   title: string;
   description: string;
@@ -16,9 +34,53 @@ interface CardProps {
 }
 
 const WithSettings: FC<CardProps> = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [t, i18n] = useTranslation("global");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [id, setId] = useState("");
+  const bg = useColorModeValue("white", "#161618");
+
+  const handleDelete = () => {
+    setError(null);
+    setLoading(true);
+    axios
+      .delete(`${API_URL}/podcasts/${id}`)
+      .then((response) => {
+        setLoading(false);
+        toast("Deleted", {
+          icon: "✅",
+          style: {
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response.status === 401 || error.response.status === 400) {
+          setError(error.response.data.message);
+        } else {
+          console.log("Error.");
+        }
+      });
+  };
+
+  const openModal = () =>{
+    setId(props.id);
+    onOpen();
+  }
+
+  const onSubmit = () => {
+    onClose();
+    handleDelete();
+    window.location.reload();
+  };
+
   return (
     <>
       <Box
+        id={props.id}
         maxW="100%"
         mb="2"
         borderWidth="1px"
@@ -41,14 +103,58 @@ const WithSettings: FC<CardProps> = (props) => {
           <Box>
             <HStack>
               <Link to={props.link}>
-                <Button fontWeight="light" rightIcon={<ArrowSquareOut />}>Ver podcast</Button>
+                <Button
+                  fontWeight="light"
+                  borderRadius="0"
+                  border="1px"
+                  rightIcon={<ArrowSquareOut />}
+                >
+                  {t("buttons.ViewPodcast")}
+                </Button>
               </Link>
-              {/* <IconButton aria-label='Search database' icon={<SearchIcon />} /> */}
-              <Button fontWeight="light">Twitter</Button>
+              <IconButton
+                title={t("buttons.Delete")}
+                aria-label={t("buttons.Delete")}
+                onClick={openModal}
+                borderRadius="0"
+                bg="transparent"
+                icon={<Trash size="20" />}
+              />
             </HStack>
           </Box>
         </Box>
       </Box>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent bg={bg}>
+          <ModalHeader fontWeight="light">
+            Are you sure you want to delete the podcast?
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>This action is irreversible</ModalBody>
+          <ModalFooter>
+            <Button
+              border="1px"
+              borderRadius="0"
+              fontWeight="light"
+              bg="transparent"
+              mr={3}
+              onClick={onClose}
+            >
+              Close
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={onSubmit}
+              type="submit"
+              borderRadius="0"
+              fontWeight="light"
+            >
+              Delete Podcast
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

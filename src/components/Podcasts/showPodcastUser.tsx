@@ -10,7 +10,7 @@ interface PodcastProp {
 }
 
 type PlayerResponse = {
-  _id: number;
+  _id: string;
   title: string;
   image: string;
   provider: string;
@@ -18,7 +18,7 @@ type PlayerResponse = {
   description: string;
 };
 
-const ShowPodcastByAuthor: FC<PodcastProp> = (props) => {
+const ShowPodcastByUser: FC<PodcastProp> = (props) => {
   const apiURL = `${API_URL}/podcasts/author/${props.author}`;
   const { data: data, loading, error } = useFetch<PlayerResponse>(apiURL);
 
@@ -29,12 +29,12 @@ const ShowPodcastByAuthor: FC<PodcastProp> = (props) => {
     <>
       {data.map((data) => (
         <Card
+          id={data._id}
           title={data.title}
           description={data.description}
           image={data.image}
           provider={data.provider}
           author={data.author}
-          key={data._id}
           link={`/play/${data._id}`}
         />
       ))}
@@ -44,4 +44,4 @@ const ShowPodcastByAuthor: FC<PodcastProp> = (props) => {
   );
 };
 
-export default ShowPodcastByAuthor;
+export default ShowPodcastByUser;

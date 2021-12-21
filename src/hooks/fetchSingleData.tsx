@@ -24,9 +24,24 @@ function FetchSingleData<data>(url: string) {
         setLoading(false);
       });
   }, [url]);
+
+  const refetch = () => {
+    setLoading(true);
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
   
 
-  return { data, loading, error };
+  return { data, loading, error, refetch };
 }
 
 export default FetchSingleData;
