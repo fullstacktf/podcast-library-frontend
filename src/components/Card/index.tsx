@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import {
   chakra,
   Box,
-  Image,
   Flex,
   Icon,
-  Divider,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { PlayCircle } from "phosphor-react";

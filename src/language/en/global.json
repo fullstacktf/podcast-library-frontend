@@ -2,7 +2,8 @@
     "header": {
         "Podcasts": "Podcasts",
         "Categories": "Categories",
-        "Authors": "Authors"
+        "Authors": "Authors",
+        "Docs": "Documentation"
     },
     "buttons": {
         "Dashboard": "Dashboard",

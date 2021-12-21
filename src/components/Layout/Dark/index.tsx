@@ -1,12 +1,8 @@
 import React from "react";
-import {
-  useColorMode,
-  useColorModeValue,
-  IconButton,
-} from "@chakra-ui/react";
+import { useColorMode, useColorModeValue, IconButton } from "@chakra-ui/react";
 import { Sun, Moon } from "phosphor-react";
 import { AnimatePresence, motion } from "framer-motion";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const Index = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -14,11 +10,11 @@ const Index = () => {
   const keyChange = useColorModeValue("light", "dark");
 
   function toggleTheme() {
-    toast('Theme changed', {
-      icon: '🎨',
+    toast("Theme changed", {
+      icon: "🎨",
       style: {
-        background: '#333',
-        color: '#fff',
+        background: "#333",
+        color: "#fff",
       },
     });
     toggleColorMode();

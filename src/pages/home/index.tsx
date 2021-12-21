@@ -12,10 +12,12 @@ import {
   SimpleGrid,
   VisuallyHidden,
   Input,
+  Divider,
 } from "@chakra-ui/react";
 
 import { Helmet } from "react-helmet";
 import ShowPodcasts from "components/Podcasts/showPodcasts";
+import ShowCategories from "components/Podcasts/showCategories";
 import Show from "animations/Show";
 import { Link } from "react-router-dom";
 import RegisterForm from "components/Auth/register";
@@ -56,6 +58,7 @@ const Index = () => {
             >
               Escucha podcasts dónde quieras, cuando quieras.
             </chakra.h1>
+            <ShowCategories />
           </GridItem>
           <GridItem colSpan={{ base: "auto", md: 4 }}>
             <Box mb={6} p="2">

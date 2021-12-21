@@ -10,12 +10,12 @@ const HEADER_LINKS = [
   {
     id: 2,
     href: "/category",
-    title: "Categories"
+    title: "Authors"
   },
   {
     id: 3,
     href: "/docs",
-    title: "Authors"
+    title: "Docs"
   },
 ];
 

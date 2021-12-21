@@ -102,7 +102,6 @@ const Index = () => {
                         background: bgHover,
                         color: colorHover
                       }}
-                      borderRadius="0"
                       variant="ghost"
                       size="md"
                       fontWeight="light"

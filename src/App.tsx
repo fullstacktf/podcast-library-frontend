@@ -11,7 +11,7 @@ import Loader from "animations/Loader";
 
 // Pages:
 import Home from "pages/home";
-import Category from "pages/category";
+import Genre from "pages/genre";
 import Play from "pages/play";
 import Author from "pages/author";
 import Login from "pages/auth/login";
@@ -27,12 +27,13 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/category" element={<Category />} />
           <Route path="/podcasts" element={<Home />} />
           <Route path="/play/" element={<Navigate to={`/`} />} />
           <Route path="/play/:id" element={<Play />} />
           <Route path="/author/" element={<Navigate to={`/`} />} />
           <Route path="/author/:id" element={<Author />} />
+          <Route path="/genre/" element={<Navigate to={`/`} />} />
+          <Route path="/genre/:id" element={<Genre />} />
           <Route path="/auth" element={<Navigate to={`/auth/login`} />} />
           <Route
             path="/auth/login"

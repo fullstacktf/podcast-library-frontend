@@ -1,6 +1,5 @@
-import React, { FC, useState, useEffect } from "react";
-import { Box, Divider, Text } from "@chakra-ui/react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import React, { FC } from "react";
+import { Navigate } from "react-router-dom";
 import { API_URL } from "services/settings";
 import useFetch from "hooks/fetchSomeData";
 import Loader from "animations/Loader";

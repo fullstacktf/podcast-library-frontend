@@ -7,7 +7,7 @@ import Loader from "animations/Loader";
 import Card from "components/Card/Large";
 
 interface PodcastProp {
-  genre: string;
+  genre?: string;
 }
 
 type PlayerResponse = {
