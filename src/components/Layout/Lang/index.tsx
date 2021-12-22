@@ -9,20 +9,12 @@ import {
 } from "@chakra-ui/react";
 import { Translate } from "phosphor-react";
 import { useTranslation } from "react-i18next";
-import toast from 'react-hot-toast';
 
 const Index = () => {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
-    toast("Language changed", {
-      icon: "📖",
-      style: {
-        background: "#333",
-        color: "#fff",
-      },
-    });
   };
 
   return (

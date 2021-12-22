@@ -20,6 +20,7 @@ import Auth from "components/Layout/Auth";
 import Github from "components/Layout/Github";
 import Dark from "components/Layout/Dark";
 import Lang from "components/Layout/Lang";
+import Docs from "components/Layout/Header/docs";
 
 import Podbuster from "icons/podbuster";
 
@@ -46,9 +47,11 @@ const Index = () => {
       >
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <HStack display="flex" spacing={3} alignItems="center">
-            <Box display={{ base: "inline-flex", md: "none" }}>
+            <Box
+              display={{ base: "inline-flex", md: "inline-flex", lg: "none" }}
+            >
               <IconButton
-                display={{ base: "flex", md: "none" }}
+                display={{ base: "flex", md: "inline-flex", lg: "none" }}
                 aria-label="Open menu"
                 variant="ghost"
                 icon={<List size="25" />}
@@ -88,19 +91,26 @@ const Index = () => {
             <Link to="/">
               <Box title="Podbuster" display="flex" alignItems="center">
                 <Icon as={Podbuster} boxSize={8} size="lg" mr="2" />
-                <Text fontSize="18px" mr="2"  display={{ base: "none", md: "inline-flex" }}>
+                <Text
+                  fontSize="18px"
+                  mr="2"
+                  display={{ base: "none", md: "inline-flex" }}
+                >
                   Podbuster
                 </Text>
               </Box>
             </Link>
-            <HStack spacing={0} display={{ base: "none", md: "inline-flex" }}>
+            <HStack
+              spacing={0}
+              display={{ base: "none", md: "none", lg: "inline-flex" }}
+            >
               {HeaderLinks.map((link) => (
                 <>
                   <Link to={link.href} key={link.href}>
                     <Button
-                       _hover={{
+                      _hover={{
                         background: bgHover,
-                        color: colorHover
+                        color: colorHover,
                       }}
                       variant="ghost"
                       size="md"
@@ -112,6 +122,7 @@ const Index = () => {
                   </Link>
                 </>
               ))}
+              <Docs />
             </HStack>
           </HStack>
           <HStack

@@ -24,12 +24,12 @@ const ShowCategories = () => {
 
   return (
     <>
-      <Stack direction={{ base: "column", md: "row" }}>
+      <Stack direction={{ base: "column", md: "column", lg:"row" }}>
         {data.map((element) => (
           <Link to={`/genre/${element}`}>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1 }}>
               <Badge
-                w={{ base: "100%", md: "row" }}
+                w={{ base: "100%", md: "100%", lg: "row" }}
                 _hover={{ backgroundColor: "#2C7043", color: "white" }}
                 border="1px"
                 bg="transparent"

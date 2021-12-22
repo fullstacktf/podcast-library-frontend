@@ -20,6 +20,9 @@
         "ViewPodcast": "Ver podcast",
         "Delete": "Eliminar podcast"
     },
+    "homePage": {
+        "title": "Escucha podcasts dónde quieras."
+    },
     "authPage": {
         "titleLogIn": "Bienvenido",
         "titleSignIn": "Crear nueva cuenta",
@@ -61,5 +64,8 @@
         "language": "Idioma",
         "genre": "Género",
         "provider": "Proveedor"
+    },
+    "toastMessage": {
+        "change": "Idioma cambiado correctamente"
     }
 }

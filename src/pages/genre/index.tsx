@@ -16,7 +16,11 @@ const Index = () => {
   const params = useParams();
   return (
     <>
-      <Box mx="auto" overflow="hidden">
+      <Flex
+        mx="auto"
+        minH="100vh"
+        direction="column"
+      >
         <Flex alignItems="center" px={6} py={3} bg="#DCBF8E" color="black">
           <Icon as={Hash} h={9} w={9} />
           <Show delay={0}>
@@ -28,7 +32,7 @@ const Index = () => {
         <Box py={4} px={6}>
           <ShowPodcastByCategory genre={params.id} />
         </Box>
-      </Box>
+      </Flex>
     </>
   );
 };

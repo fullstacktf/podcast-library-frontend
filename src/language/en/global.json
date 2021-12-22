@@ -20,6 +20,9 @@
         "ViewPodcast": "View podcast",
         "Delete": "Delete"
     },
+    "homePage": {
+        "title": "Listen to podcasts anywhere."
+    },
     "authPage": {
         "titleLogIn": "Log In",
         "titleSignIn": "Sign Up",
@@ -61,5 +64,8 @@
         "language": "Language",
         "genre": "Genre",
         "provider": "Provider"
+    },
+    "toast": {
+        "change": "Language changed"
     }
 }

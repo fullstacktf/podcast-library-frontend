@@ -24,8 +24,6 @@ const ShowPodcastByCategory: FC<PodcastProp> = (props) => {
   const { data: data, loading, error } = useFetch<PlayerResponse>(apiURL);
 
   if (loading) return <Loader />;
-  if (error) return <Navigate to={`/404`} />;
-  console.log(data);
 
   return data ? (
     <>

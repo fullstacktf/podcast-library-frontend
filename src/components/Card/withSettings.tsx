@@ -38,14 +38,14 @@ const WithSettings: FC<CardProps> = (props) => {
   const [t, i18n] = useTranslation("global");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [id, setId] = useState("");
   const bg = useColorModeValue("white", "#161618");
+  let id = "";
 
   const handleDelete = () => {
     setError(null);
     setLoading(true);
     axios
-      .delete(`${API_URL}/podcasts/${id}`)
+      .delete(`${API_URL}/podcasts/${props.id}`)
       .then((response) => {
         setLoading(false);
         toast("Deleted", {
@@ -55,6 +55,7 @@ const WithSettings: FC<CardProps> = (props) => {
             color: "#fff",
           },
         });
+        window.location.reload();
       })
       .catch((error) => {
         setLoading(false);
@@ -64,17 +65,6 @@ const WithSettings: FC<CardProps> = (props) => {
           console.log("Error.");
         }
       });
-  };
-
-  const openModal = () =>{
-    setId(props.id);
-    onOpen();
-  }
-
-  const onSubmit = () => {
-    onClose();
-    handleDelete();
-    window.location.reload();
   };
 
   return (
@@ -115,7 +105,7 @@ const WithSettings: FC<CardProps> = (props) => {
               <IconButton
                 title={t("buttons.Delete")}
                 aria-label={t("buttons.Delete")}
-                onClick={openModal}
+                onClick={handleDelete}
                 borderRadius="0"
                 bg="transparent"
                 icon={<Trash size="20" />}
@@ -124,37 +114,6 @@ const WithSettings: FC<CardProps> = (props) => {
           </Box>
         </Box>
       </Box>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent bg={bg}>
-          <ModalHeader fontWeight="light">
-            Are you sure you want to delete the podcast?
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>This action is irreversible</ModalBody>
-          <ModalFooter>
-            <Button
-              border="1px"
-              borderRadius="0"
-              fontWeight="light"
-              bg="transparent"
-              mr={3}
-              onClick={onClose}
-            >
-              Close
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={onSubmit}
-              type="submit"
-              borderRadius="0"
-              fontWeight="light"
-            >
-              Delete Podcast
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </>
   );
 };

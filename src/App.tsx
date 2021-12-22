@@ -5,7 +5,6 @@ import { getToken } from "services/authService";
 
 // Components:
 import Header from "components/Layout/Header";
-import Footer from "components/Layout/Footer";
 import Loader from "animations/Loader";
 
 // Pages:
@@ -60,7 +59,6 @@ function App() {
           />
           <Route path="*" element={<Error404 />} />
         </Routes>
-        <Footer />
         <Toaster position="bottom-right" reverseOrder={false} />
       </Suspense>
     </>
