@@ -21,7 +21,8 @@
         "Delete": "Delete"
     },
     "homePage": {
-        "title": "Listen to podcasts anywhere."
+        "title": "Listen to podcasts anywhere.",
+        "Welcome": "Welcome"
     },
     "authPage": {
         "titleLogIn": "Log In",

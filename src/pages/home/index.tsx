@@ -24,13 +24,14 @@ import ShowCategories from "components/Podcasts/showCategories";
 import RegisterForm from "components/Auth/register";
 import Show from "animations/Show";
 import { useTranslation } from "react-i18next";
-import { getToken } from "services/authService";
+import { getToken, getUser } from "services/authService";
 
 const Index = () => {
   const color = useColorModeValue("black", "white");
   const bgHeader = useColorModeValue("#DCBF8E", "#1E1E1E");
   const borderColor = useColorModeValue("#E2E8F0", "#3B3B3D");
   const [t, i18n] = useTranslation("global");
+  const user = getUser();
 
   return (
     <>
@@ -45,38 +46,57 @@ const Index = () => {
         borderBottom="1px"
         borderColor={borderColor}
       >
-        <SimpleGrid
-          alignItems="center"
-          w={{ base: "full", xl: 11 / 12 }}
-          columns={{ base: 1, lg: 11 }}
-          mx="auto"
-        >
-          <GridItem
-            colSpan={{ base: "auto", lg: 7 }}
-            textAlign={{ base: "center", lg: "left" }}
+        {!getToken() ? (
+          <SimpleGrid
+            alignItems="center"
+            w={{ base: "full", xl: 11 / 12 }}
+            columns={{ base: 1, lg: 11 }}
+            mx="auto"
           >
+            <GridItem
+              colSpan={{ base: "auto", lg: 7 }}
+              textAlign={{ base: "center", lg: "left" }}
+            >
+              <Show delay={0}>
+                <chakra.h1
+                  mb={7}
+                  fontSize={{ base: "3xl", md: "5xl" }}
+                  fontWeight="bold"
+                  lineHeight={{ base: "shorter", md: "none" }}
+                  color={color}
+                >
+                  {t("homePage.title")}
+                </chakra.h1>
+              </Show>
+              <ShowCategories />
+            </GridItem>
+            <GridItem
+              colSpan={{ base: "auto", md: 4 }}
+              display={{ base: "none", md: "none", lg: "block" }}
+            >
+              <Box mb={6} p="2">
+                <RegisterForm />
+              </Box>
+            </GridItem>
+          </SimpleGrid>
+        ) : (
+          <Box textAlign={{ base: "left", lg: "center" }}>
             <Show delay={0}>
               <chakra.h1
-                mb={10}
+                mb={{ base: "2", lg: "7" }}
                 fontSize={{ base: "3xl", md: "5xl" }}
                 fontWeight="bold"
                 lineHeight={{ base: "shorter", md: "none" }}
                 color={color}
               >
-                {t("homePage.title")}
+                {t("homePage.Welcome")}, {user.username}
               </chakra.h1>
             </Show>
-            <ShowCategories />
-          </GridItem>
-          <GridItem
-            colSpan={{ base: "auto", md: 4 }}
-            display={{ base: "none", md: "none", lg: "block" }}
-          >
-            <Box mb={6} p="2">
-              {getToken() ? <UserAuthenticated /> : <RegisterForm />}
-            </Box>
-          </GridItem>
-        </SimpleGrid>
+            <Center>
+              <ShowCategories />
+            </Center>
+          </Box>
+        )}
       </Box>
       <Box p="3">
         <ShowPodcasts />

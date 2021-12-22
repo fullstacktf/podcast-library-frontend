@@ -21,7 +21,8 @@
         "Delete": "Eliminar podcast"
     },
     "homePage": {
-        "title": "Escucha podcasts dónde quieras."
+        "title": "Escucha podcasts dónde quieras.",
+        "Welcome": "Bienvenido"
     },
     "authPage": {
         "titleLogIn": "Bienvenido",

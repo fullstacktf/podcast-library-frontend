@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import { Button, Stack } from '@chakra-ui/react';
 
 const UserAuthenticated = () => {
-    return (
-        <>
-           sdfsd 
-        </>
-    )
-}
+  return (
+    <>
+      <Stack direction="row" spacing={4}>
+        <Button colorScheme="teal" variant="solid">
+          Email
+        </Button>
+        <Button
+          colorScheme="teal"
+          variant="outline"
+        >
+          Call us
+        </Button>
+      </Stack>
+    </>
+  );
+};
 
-export default UserAuthenticated
+export default UserAuthenticated;

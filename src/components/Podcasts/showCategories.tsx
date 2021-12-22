@@ -5,7 +5,14 @@ import useFetch from "hooks/fetchSomeData";
 import Loader from "animations/Loader";
 import { motion } from "framer-motion";
 import Card from "components/Card";
-import { Badge, Stack } from "@chakra-ui/react";
+import {
+  Flex,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from "@chakra-ui/react";
 
 type PlayerResponse = {
   _id: number;
@@ -24,8 +31,32 @@ const ShowCategories = () => {
 
   return (
     <>
-      <Stack direction={{ base: "column", md: "column", lg:"row" }}>
-        {data.map((element) => (
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        maxW="100%"
+        overflowX="auto"
+      >
+        <Tabs borderBottom="transparent">
+          <TabList>
+            {data.map((element) => (
+              <Link to={`/genre/${element}`}>
+                <Tab
+                  fontSize="16px"
+                  _hover={{ backgroundColor: "#2C7043", color: "white" }}
+                  _selected={{ bg: 'transparent' }}
+                  bg="transparent"
+                  margin-left="2px"
+                  isTruncated
+                >
+                  #{element}
+                </Tab>
+              </Link>
+            ))}
+          </TabList>
+        </Tabs>
+      </Flex>
+      {/* {data.map((element) => (
           <Link to={`/genre/${element}`}>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1 }}>
               <Badge
@@ -42,8 +73,7 @@ const ShowCategories = () => {
               </Badge>
             </motion.div>
           </Link>
-        ))}
-      </Stack>
+        ))} */}
     </>
   );
 };
