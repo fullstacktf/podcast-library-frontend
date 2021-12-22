@@ -1,0 +1,36 @@
+name: Test, Build & Deploy on Digital Ocean
+on: [push, pull_request]
+jobs:
+
+  build:
+    name: Run front-end
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+  deploy:
+    name: Build & Deploy on Digital Ocean
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Digital Ocean droplet via SSH action
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          user: ${{ secrets.DO_USER }}
+          key: ${{ secrets.DO_KEY }}
+          source: 'build/*'
+          target: '/var/www/html'
+          strip_components: 1

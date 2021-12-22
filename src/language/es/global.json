@@ -1,0 +1,72 @@
+{
+    "header": {
+        "Podcasts": "Podcasts",
+        "Categories": "Categorías",
+        "Authors": "Autores",
+        "Docs": "Documentación"
+    },
+    "buttons": {
+        "Dashboard": "Dashboard",
+        "LogIn": "Iniciar sesión",
+        "SignIn": "Crear nueva cuenta",
+        "Logout": "Cerrar sesión",
+        "MyPodcasts": "Mis podcasts",
+        "AddPodcast": "Subir podcast",
+        "Play": "Reproducir",
+        "Pause": "Pausar",
+        "Share": "Compartir", 
+        "Copy": "Copiar",
+        "Copied": "Copiado",
+        "ViewPodcast": "Ver podcast",
+        "Delete": "Eliminar podcast"
+    },
+    "homePage": {
+        "title": "Escucha podcasts dónde quieras.",
+        "Welcome": "Hola"
+    },
+    "authPage": {
+        "titleLogIn": "Bienvenido",
+        "titleSignIn": "Crear nueva cuenta",
+        "Username": "Nombre de usuario",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "PlacePassword": "Contraseña (mínimo 6 caracteres)",
+        "RepeatPassword": "Vuelve a escribir la contraseña",
+        "Remember": "Recordar contraseña",
+        "Forgot": "Recuperar contraseña",
+        "AlreadyAcc": "¿Tienes ya una cuenta creada?",
+        "NewAcc": "¿No tienes una cuenta?"
+    },
+    "validateRequired": {
+        "Username": "El nombre de usuario es obligatorio",
+        "Email": "El correo electrónico es obligatorio",
+        "Password": "La contraseña es obligatoria",
+        "PasswordCharacters": "La contraseña debe tener como mínimo 6 caracteres",
+        "Title": "El título del podcast es obligatorio",
+        "Episode": "El episodio del podcast es obligatorio",
+        "Description": "La descripción del podcast es obligatoria",
+        "Image": "La imágen es obligatoria",
+        "Language": "El idioma es obligatorio",
+        "Genre": "El género es obligatorio",
+        "Provider": "Tienes que seleccionar un proveedor",
+        "URL": "La URL del podcast es obligatoria"
+    },
+    "dashboardPage": {
+        "welcome": "Bienvenido",
+        "title": "Mis podcasts"
+    },
+    "uploadPage": {
+        "titlePage": "Subir podcast",
+        "title": "Título",
+        "url": "URL",
+        "episode": "Episodio",
+        "description": "Descripción",
+        "image": "Imágen",
+        "language": "Idioma",
+        "genre": "Género",
+        "provider": "Proveedor"
+    },
+    "toastMessage": {
+        "change": "Idioma cambiado correctamente"
+    }
+}

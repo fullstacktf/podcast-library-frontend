@@ -1,0 +1,29 @@
+@font-face {
+  font-family: GTWalsheim;
+  src: url(../fonts/GT-Walsheim-Regular.woff2);
+}
+
+@font-face {
+  font-family: GTWalsheim-Medium;
+  src: url(../fonts/GT-Walsheim-Medium.woff2);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2f2f2f; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(194, 194, 194); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

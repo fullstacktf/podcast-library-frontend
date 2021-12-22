@@ -1,0 +1,72 @@
+{
+    "header": {
+        "Podcasts": "Podcasts",
+        "Categories": "Categories",
+        "Authors": "Authors",
+        "Docs": "Documentation"
+    },
+    "buttons": {
+        "Dashboard": "Dashboard",
+        "LogIn": "Login",
+        "SignIn": "Create new account",
+        "Logout": "Logout",
+        "MyPodcasts": "My podcasts",
+        "AddPodcast": "Upload podcast",
+        "Play": "Play",
+        "Pause": "Pause",
+        "Share": "Share", 
+        "Copy": "Copy",
+        "Copied": "Copied",
+        "ViewPodcast": "View podcast",
+        "Delete": "Delete"
+    },
+    "homePage": {
+        "title": "Listen to podcasts anywhere.",
+        "Welcome": "Welcome"
+    },
+    "authPage": {
+        "titleLogIn": "Log In",
+        "titleSignIn": "Sign Up",
+        "Username": "Username",
+        "Email": "Email address",
+        "Password": "Password",
+        "PlacePassword": "Password (6 characters minimum)",
+        "RepeatPassword": "Repeat password",
+        "Remember": "Remember me",
+        "Forgot": "Forgot password?",
+        "AlreadyAcc": "Already have an account?",
+        "NewAcc": "Don't have an account?"
+    },
+    "validateRequired": {
+        "Username": "Username is required",
+        "Email": "Email is required",
+        "Password": "Password is required",
+        "PasswordCharacters": "Password must have at least 6 characters",
+        "Title": "Podcast title is required",
+        "Episode": "Podcast episode is required",
+        "Description": "Podcast description is required",
+        "Image": "Podcast image is required",
+        "Language": "Podcast language is required",
+        "Genre": "Podcast genre is required",
+        "Provider": "Podcast provider is required",
+        "URL": "Podcast URL is required"
+    },
+    "dashboardPage": {
+        "welcome": "Welcome",
+        "title": "My podcasts"
+    },
+    "uploadPage": {
+        "titlePage": "Upload podcast",
+        "title": "Title",
+        "url": "URL",
+        "episode": "Episode",
+        "description": "Description",
+        "image": "Image",
+        "language": "Language",
+        "genre": "Genre",
+        "provider": "Provider"
+    },
+    "toast": {
+        "change": "Language changed"
+    }
+}
